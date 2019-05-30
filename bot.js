@@ -19,16 +19,20 @@ client.on('message', async message => {
     const { content } = message
 
     if (content.substr(0,1) === '?') {
-        let command = parseNote(content);
-        return message.reply(await actions.notes.findNote(command))
+        let command = parseNoteCommand(content);
+        return message.reply(await actions.notes.getNote(command))
+    } 
+    else if (content.substr(0,1) === '+') {
+        let command = parseNoteCommand(content);
+        return message.reply(await actions.notes.addNote(command))
     }
 })
 
 //
-function parseNote(content)  {
+function parseNoteCommand(content)  {
     let cmd = content.substring(1).split(' ')
     let option = cmd[0]
-    let args = cmd[1] || []
+    let args = cmd[1] || null
 
     return {
         option,
