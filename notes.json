@@ -1,0 +1,15 @@
+{
+    "cpf" : {
+        "default": "108.313.839-17"
+    },
+    "cnpj": {
+        "default": "Use o argumento *zanta* ou *weblook*",
+        "zanta": "23.446.013/0001-94", 
+        "weblook" : "32.251.869/0001-03"
+    },
+    "mei": {
+        "default": "Use o argumento *zanta* ou *weblook*",
+        "zanta": "", 
+        "weblook" : "576793961260"
+    } 
+}
