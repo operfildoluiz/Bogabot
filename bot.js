@@ -18,7 +18,7 @@ client.on('ready', () => {
 client.on('message', async message => {
     const { content } = message
 
-    if (content.substr(0,1) === '!') {
+    if (content.substr(0,1) === '?') {
         let command = parseNote(content);
         return message.reply(await actions.notes.findNote(command))
     }
