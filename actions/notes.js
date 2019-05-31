@@ -4,7 +4,6 @@ const sheetsuClient = new sheetsuNode({address: sheetsu})
 
 class Action {
 
-
     loadNotesFromSheet() {
         return new Promise((resolve, reject) => {
             sheetsuClient.read()
@@ -16,7 +15,7 @@ class Action {
     sendNoteToSheet(body) {
         return new Promise((resolve, reject) => {
             sheetsuClient.create(body)
-            .then(data => resolve(data))
+            .then(data => resolve(JSON.parse(data)))
             .catch(error => reject(error))
         })
     }    
@@ -38,8 +37,7 @@ class Action {
             return `adicionei **${note.key}** => *${note.value}* à lista`
         }
         
-        return `**NÃO ROLOU** adicionar **${note.key}** => *${note.value}* à lista`
-
+        return `**NÃO ROLOU** adicionar **${note.key}** => *${note.value}* à lista.\nAtualize direto na planilha. Use o comando \`!sheet\` pra acessar`
 
     }
 
